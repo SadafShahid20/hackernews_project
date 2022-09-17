@@ -1,13 +1,19 @@
 
 import React from 'react'
 import {useEffect, useState} from 'react'
+import Search from './Search';
+import { Link } from 'react-router-dom';
 
 
-export default function NewsList({searchText}) {
+export default function NewsList() {
     const [news, setNews] = useState([])
-    const [text, setText] = useState(searchText)
-    useEffect(() => {
+    const [text, setText] = useState()
+  
+         
 
+    
+    useEffect(() => {
+    console.log("newlist", text);
         async function getData() {
     let response
           try {
@@ -31,9 +37,14 @@ export default function NewsList({searchText}) {
     
         getData()
       }, [])
+      
+    
+   
   return (
 
+    
     <>
+    
     <ul>
       {news.map((items, idx) => <li key = {items.objectID}>
         <a href = {items.url}>{items.title}</a>
@@ -43,6 +54,7 @@ export default function NewsList({searchText}) {
         <span>{items.num_comments}</span>
         </li>)}
     </ul>
+    
     </>
   )
 }

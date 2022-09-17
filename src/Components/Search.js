@@ -1,13 +1,17 @@
 
 import React from 'react'
 import {BiSearchAlt} from 'react-icons/bi'
+import { useState } from 'react'
 
 
 
-  export default function SearchBox({value, onChange, onClick}) {
+  export default function SearchBox({onClick, onChange, value}){
+   
+    
     return <div className='searchbox'>
-        <input type="text" placeholder='type your search' value={value} onChange={onChange} />
-        <BiSearchAlt className='icon' onClick={onClick}/>
+        <input type="text" placeholder='type your search' onChange={onChange} defaultValue ={value}/>
+        <button className='icon' onClick={onClick}>Click Me!
+        </button>
     </div>
 
 }
