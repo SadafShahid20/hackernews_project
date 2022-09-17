@@ -11,20 +11,16 @@ function App() {
     const [sText, setSText] = useState('')
     
     
-    function  handleClick () {
-      console.log("clicked make search with:",sText);
-      setSearchText(sText)
-     }
    
      function  handleChange (e) {
-      console.log(e.target.value);
+      console.log("app search value: ", e.target.value);
       setSText(e.target.value)
      }
   
  return (
     <div className="App">
       <NewsList stext={searchText} aa={()=>console.log({searchText})} />
-      <SearchBox onClick = {handleClick} onChange={handleChange} />
+      <SearchBox sText = {sText} onChange={handleChange}/>
     </div>
   );
 }

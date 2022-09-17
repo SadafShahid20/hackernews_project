@@ -36,14 +36,17 @@ export default function NewsList({stext}) {
 
     return (
       news.length>0
-     ?<ul>
+     ?<ul className ="grid  grid-flow-row gap-4">
       {news.map((items, idx) => <li key = {items.objectID}>
-        <a href = {items.url}>{items.title}</a>
-        <span>{items.author}</span>
-        <span>{items.points}</span>
-        <span>{items.created_at}</span>
-        <span>{items.num_comments}</span>
-        </li>)}
+        <div href = {items.url} 
+          >
+        {items.title}</div>
+        <br></br>
+        <div className='...'>{items.author}</div>
+        <div className='...'>{items.points}</div>
+        <div className='...'>{items.created_at}</div>
+        <div className='...'>{items.num_comments}</div>
+        </li>)}   
     </ul>
     : <h1>Loading...</h1>
    )
