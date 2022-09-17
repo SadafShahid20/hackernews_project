@@ -3,6 +3,10 @@ import './App.css';
 import NewsList from './Components/newslist';
 import SearchBox from './Components/Search';
 import {useEffect, useState} from 'react'
+import MainLayout from './Hackerlayout/Mainlayout';
+import SearchLayout from './Hackerlayout/Searchlayout';
+import Search from './Components/Search';
+import { Link } from 'react-router-dom';
 
 
 function App() {
