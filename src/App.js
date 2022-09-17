@@ -10,23 +10,22 @@ import { Link } from 'react-router-dom';
 
 
 function App() {
-  const [text, setText] = useState('')
- 
- function handleChange(e){
-  console.log(e.target.value)
-  setText(e.target.value)
-}
-
-    function handleClick(){
-      console.log("Hi click me!", text);
-     //<Link to={`/search/:${text}`}></Link>
- }
+    
+    const [searchText, setSearchText] = useState('')
+    const [sText, setSText] = useState('')
+    
+    
+   
+     function  handleChange (e) {
+      console.log("app search value: ", e.target.value);
+      setSText(e.target.value)
+     }
   
  return (
-  <div>
-  <NewsList />
-  <SearchBox value={text} onChange={handleChange} onClick={handleClick}/>
-  </div>
+    <div className="App">
+      <NewsList stext={searchText} aa={()=>console.log({searchText})} />
+      <SearchBox sText = {sText} onChange={handleChange}/>
+    </div>
   );
 }
 

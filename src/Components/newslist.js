@@ -5,57 +5,52 @@ import Search from './Search';
 import { Link } from 'react-router-dom';
 
 
-export default function NewsList() {
+export default function NewsList({stext}) {
     const [news, setNews] = useState([])
-    const [text, setText] = useState()
-  
-         
 
-    
+    console.log ("hello from newlist", stext)
     useEffect(() => {
-    console.log("newlist", text);
+      console.log ("hello from newlist2, settext value", stext)
         async function getData() {
-    let response
+          let response;
           try {
-          if (text !== '' ) {
-                response = await fetch(`http://hn.algolia.com/api/v1/search?query=${text}`)
+              console.log("API called text:", stext)  
+              if (stext !== '' ) {
+                  console.log("API called text:", stext)  
+                  response = await fetch(`http://hn.algolia.com/api/v1/search?query=${stext}`)
 
-          } else {
-            response = await fetch('http://hn.algolia.com/api/v1/search?tags=front_page')
-          }  
-           
-            
-            const data = await response.json()
-            console.log("🚀 ~ data", data)
-           setNews( data.hits)
-          } catch (error) {
-            
-            console.log('ERROR:', error.message)
-            alert('error getting data')
+              } else {
+                response = await fetch('http://hn.algolia.com/api/v1/search?tags=front_page')
+              }  
+ 
+          const data = await response.json()
+          console.log("🚀 ~ data", data)
+          setNews( data.hits)
+          } 
+          catch (error) {
+          console.log('ERROR:', error.message) 
+          alert('error getting data')
           }
-        }
+        } 
     
         getData()
-      }, [])
-      
-    
-   
-  return (
+      }, [stext])
 
-    
-    <>
-    
-    <ul>
+    return (
+      news.length>0
+     ?<ul className ="grid  grid-flow-row gap-4">
       {news.map((items, idx) => <li key = {items.objectID}>
-        <a href = {items.url}>{items.title}</a>
-        <span>{items.author}</span>
-        <span>{items.points}</span>
-        <span>{items.created_at}</span>
-        <span>{items.num_comments}</span>
-        </li>)}
+        <div href = {items.url} 
+          >
+        {items.title}</div>
+        <br></br>
+        <div className='...'>{items.author}</div>
+        <div className='...'>{items.points}</div>
+        <div className='...'>{items.created_at}</div>
+        <div className='...'>{items.num_comments}</div>
+        </li>)}   
     </ul>
-    
-    </>
-  )
+    : <h1>Loading...</h1>
+   )
 }
 
