@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import SearchList from './Searchlist';
 
-
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainLayout from './Layouts/Mainlayout';
