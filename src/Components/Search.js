@@ -11,8 +11,8 @@ import { Link } from 'react-router-dom'
     return <div className='static ...'>
         <hr></hr>
         <br></br>
-        <div>
-            <input type="text" placeholder='type your search' value={sText} onChange={onChange} />
+        <div className='flex justify-center items-center'>
+            <input type="text" placeholder='type your search' className='border-2 border-black' value={sText} onChange={onChange} />
             <Link to={`/search/${sText}`} className='text-black'>Search</Link>
         </div>
     </div>

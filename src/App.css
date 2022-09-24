@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.logo{
+  width : 45px;
+  height : 45px;
+  margin-right: 20px;
+}
+
+.container{
+  display : flex;
+  flex-direction: row;
+  border: 2px solid black;
+  width : 120%;
+  height : 50px;
+  background-color:rgb(149, 5, 5);
+  color : white;
+  
+}
+ul{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+li{
+  text-decoration: none;
+  margin-top: 10px;
+}
+h1{
+font-size: 30px;
+font-style: italic;
+margin-right: 10px;
+}

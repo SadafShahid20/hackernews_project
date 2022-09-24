@@ -2,7 +2,9 @@
 import React from 'react'
 import {useEffect, useState} from 'react'
 import Search from './Search';
+import Header from './Header/Header';
 import { Link } from 'react-router-dom';
+import SearchBox from './Search';
 
 
 export default function NewsList({stext}) {
@@ -37,18 +39,27 @@ export default function NewsList({stext}) {
       }, [stext])
 
     return (
-      news.length>0
-     ?<ul className ="grid  grid-flow-row gap-4">
-      {news.map((items, idx) => <li key = {items.objectID}>
-        <div href = {items.url} 
-          >
-        {items.title}</div>
+ 
+           news.length>0
+     
+     ?<ul className ="grid  grid-flow-row gap-4 mx-20">
+      
+      <div>
+        <Header />
+      </div>
+      {news.map((items, idx) => <li  className='flex justify-center items-center flex-col' key = {items.objectID}>
+      <a href={items.url}></a>
+  
         <br></br>
+        <div className='...'>{items.title} </div>
         <div className='...'>{items.author}</div>
         <div className='...'>{items.points}</div>
         <div className='...'>{items.created_at}</div>
         <div className='...'>{items.num_comments}</div>
-        </li>)}   
+        </li>)} 
+        <div>
+        <SearchBox  />
+      </div>  
     </ul>
     : <h1>Loading...</h1>
    )
