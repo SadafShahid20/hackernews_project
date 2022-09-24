@@ -1,12 +1,12 @@
 
 import React from 'react'
 
-export default function Header() {
+export default function New() {
   return (
     <div>
-  Hello Hacker!
+        Hello from New 
     </div>
-   
+ 
   )
 }
 
