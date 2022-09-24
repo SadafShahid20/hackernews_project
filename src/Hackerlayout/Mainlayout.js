@@ -1,18 +1,20 @@
 
 import React from 'react'
+import Header from '../Components/Header/Header';
 import NewsList from '../Components/newslist';
 import SearchBox from '../Components/Search';
 import {useEffect, useState} from 'react'
 import { Outlet } from 'react-router-dom';
-import Header from '../Components/Header';
+
 
 export default function Mainlayout() {
     
 
   return (
     <div className="App">
-        <Header />
-        <Outlet/>
+     
+      <Header />
+      <Outlet/>
      </div>
 
   )
