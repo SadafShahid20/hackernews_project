@@ -9,15 +9,15 @@ import Submit from './Submit';
 
 function Header() {
     return (
-        <div className='container'>
+        <div className='container w-full'>
             <div>
             <img className='logo' src={logoSrc} alt=''/>
             </div>
             <div>
                 <h1> Hacker News</h1>
             </div>
-            <div>
-            <ul className='mx-[10px] flex gap-[10px]'>
+            <div className='grow'>
+            <ul className=' flex '>
                 <NavLink  to='/new'><li className='mx-[20px]'>New</li></NavLink>
                 <NavLink  to='/comments'><li className='mx-[20px]'>Comments</li></NavLink>
                 <NavLink  to='/jobs'><li className='mx-[20px]'>Jobs</li></NavLink>

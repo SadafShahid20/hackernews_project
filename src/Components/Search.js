@@ -1,33 +1,29 @@
-
-import React from 'react'
+import React, { useState } from 'react'
 import {BiSearchAlt} from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 
 
 
-  export default function SearchBox({onChange, sText}) {
-    
-    console.log("search:", sText)
-    return <div className='bg-red-500 static ...'>
-        <hr></hr>
-        <br></br>
+  export default function SearchBox() {
+ 
 
-        <div flex justify-center>
-            <input type="text" placeholder='type your search' value={sText} onChange={onChange} />
+    const [searchText, setSearchText] = useState("");
 
-            <Link to={`/search/${sText}`} className='text-black'>Search</Link>
-        </div>
-        <br></br>
-        <hr></hr>
+    function handleChange(e){
+        setSearchText(e.target.value)
+    }
+
+    return <div className='bg-red-900 static flex justify-center items-center h-[50px]'>
+    <hr></hr>
+    <br></br>
+
+    <div flex justify-center>
+        <input type="text" placeholder='type your search' defaultValue ="" onChange={handleChange} />
+
+        <Link to={`/search/${searchText}`} className='text-black'>Search</Link>
     </div>
+    <br></br>
+    <hr></hr>
+</div>
 
-}
-
-    export function Input(props) {
-
-        return <input 
-            value={props.value} 
-            placeholder={props.text}
-            onChange={props.cb}
-    />
 }

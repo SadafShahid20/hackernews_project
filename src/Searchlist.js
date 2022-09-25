@@ -1,4 +1,3 @@
-
 import React from 'react'
 import SearchNewsList from "./Components/searchnewslist"
 import {useEffect, useState} from 'react'
@@ -10,19 +9,11 @@ export default function SearchList() {
   let { sText } = useParams()
   console.log("mytext:",sText)
   
-  const [searchText, setSearchText] = useState(sText)
-  
- 
-  function  handleChange (e) {
-    console.log("app search value: ", e.target.value);
-    setSearchText(e.target.value)
-  }
-  
-  console.log ("SearchText:", searchText)
+  if (sText===undefined) sText=""
   return (
     <div>
-          <SearchBox sText = {searchText} onChange={handleChange}/>  
-          <SearchNewsList stext={searchText} />
+          <SearchBox className='flex justify-center items-center '/>  
+          <SearchNewsList stext={sText} />
     </div>
      )
 }
