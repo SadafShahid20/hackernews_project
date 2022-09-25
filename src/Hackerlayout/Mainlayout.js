@@ -11,13 +11,13 @@ export default function Mainlayout() {
     
 
   return (
-    <div className="App">
+    <div className="App w-full">
      
-      <Header />
+     <Header />
       <Outlet/>
      </div>
 
   )
 }
 
-//const styles = StyleSheet.create({})
+

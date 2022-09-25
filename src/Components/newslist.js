@@ -42,16 +42,13 @@ export default function NewsList({stext}) {
  
            news.length>0
      
-     ?<ul className ="grid  grid-flow-row gap-4 mx-20">
+     ?<ul className ="">
       
-      <div>
-        <Header />
-      </div>
+     
       {news.map((items, idx) => <li  className='flex justify-center items-center flex-col' key = {items.objectID}>
-      <a href={items.url}></a>
-  
+      
         <br></br>
-        <div className='...'>{items.title} </div>
+        <a className='.font-extrabold' href={items.url} >{items.title} </a>
         <div className='...'>{items.author}</div>
         <div className='...'>{items.points}</div>
         <div className='...'>{items.created_at}</div>
